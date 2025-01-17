@@ -19,6 +19,7 @@ public class ReviewServiceController {
     public List<Review> getReviewByBookId(@PathVariable("id") Long id) {
         return reviewService.getReviewByBookId(id);
     }
+
     @PostMapping("")
     public Review AddBookReview(@RequestBody ReviewRequestDto review) {
         return reviewService.AddBookReview(review.getBookId(),review.getReviewer(),review.getRating(),review.getComment());

@@ -15,7 +15,7 @@ public class BookClient {
     }
     @CircuitBreaker(name = "bookserviceBreaker", fallbackMethod = "bookserviceFallback")
     public boolean checkBook(Long id) {
-        ResponseEntity<Book> response = restTemplate.getForEntity("http://localhost:8080/v1/books/" + id, Book.class);
+        ResponseEntity<Book> response = restTemplate.getForEntity("http://BookService:8080/v1/books/" + id, Book.class);
         return response.getStatusCode()== HttpStatus.OK && response.getBody()!=null;
     }
 
